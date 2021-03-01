@@ -12,8 +12,18 @@
     <div *ngIf="signInForm.submitted && password.errors?.minlength">
       <label class="validation-message">Minimum 4 characters.</label>
     </div>
+    
+
+
     <input type="submit" value="Sign In">
-  </form>
+
+     <a type="submit" href="http://localhost:3000/auth/google">
+    <span class="fa fa-google" ></span> Signin with google
+  </a>
+
+     <!-- <a href="/google">Sign In with Google</a> -->
+
+       </form>
   <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
     {{serverErrorMessages}}

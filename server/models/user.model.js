@@ -1,24 +1,38 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
+//const findOrCreate =require('mongoose-findorcreate');
+const findOrCreatePlugin = require('mongoose-findorcreate');
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
-        required: 'Full name can\'t be empty'
+       // required: 'Full name can\'t be empty'
     },
     email: {
         type: String,
-        required: 'Email can\'t be empty',
-        unique: true
+       // required: 'Email can\'t be emptys',
+       unique: true
     },
     password: {
         type: String,
-        required: 'Password can\'t be empty',
+      //  required: 'Password can\'t be empty',
         minlength: [4, 'Password must be atleast 4 character long']
     },
-    saltSecret: String
-});
+    googleId:{
+        type:String,
+    },
+   
+    saltSecret: String,
+
+    
+    
+
+
+},{autoIndex:false});
+
+userSchema.plugin(findOrCreatePlugin);
 
 // Custom validation for email
 userSchema.path('email').validate((val) => {

@@ -16,7 +16,10 @@
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
     "mongoose": "^5.1.2",
+    "mongoose-findorcreate": "^3.0.0",
     "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0"
   }
 }
